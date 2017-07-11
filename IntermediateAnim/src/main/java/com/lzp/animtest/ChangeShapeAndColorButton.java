@@ -139,10 +139,10 @@ public class ChangeShapeAndColorButton extends AppCompatButton {
         if (status != mCurrentStaus && !isAnim) {
             switch (mCurrentStaus) {
                 case Status.NORMAL:
-                    startColorChangeAnim(mNormalBgColor, mSuccessBgColor, 0, getHeight() / 2, 0, maxPadding);
+                    starteAnimSet(mNormalBgColor, mSuccessBgColor, 0, getHeight() / 2, 0, maxPadding);
                     break;
                 case Status.SUCCESS:
-                    startColorChangeAnim(mSuccessBgColor, mNormalBgColor, getHeight() / 2, 0, maxPadding, 0);
+                    starteAnimSet(mSuccessBgColor, mNormalBgColor, getHeight() / 2, 0, maxPadding, 0);
                     break;
             }
             mCurrentStaus = status;
@@ -159,7 +159,7 @@ public class ChangeShapeAndColorButton extends AppCompatButton {
     /**
      * 开启动画效果
      */
-    private void startColorChangeAnim(int fromColor, int toColor, int fromRadius, int roRadius, int fromPadding, int toPadding) {
+    private void starteAnimSet(int fromColor, int toColor, int fromRadius, int roRadius, int fromPadding, int toPadding) {
         isAnim = true;
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playTogether(getColorAnim(fromColor, toColor), getRadiusAnim(fromRadius, roRadius), getShapeAnim(fromPadding, toPadding));
